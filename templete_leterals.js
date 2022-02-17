@@ -81,3 +81,4 @@ let { name: myname, age: ages, deg, hobb } = bioData;
 console.log(
   `My name is ${myname}. My age is ${ages} and My highest qualificaton is ${deg}. I love making ${hobb.first} and palying ${hobb.sec}.`
 );
+
