@@ -82,3 +82,121 @@ console.log(
   `My name is ${myname}. My age is ${ages} and My highest qualificaton is ${deg}. I love making ${hobb.first} and palying ${hobb.sec}.`
 );
 
+// fat arrow function
+//es5
+// var sum = function(){
+//   var a =5;
+//   var b=10;
+//   return (a+b);
+// }
+// console.log(sum());
+
+// es6
+// const sum = () => {
+//   let d = 5;
+//   let t = 10;
+//   return d + t;
+// };
+// console.log(sum());
+
+// let e = 30;
+// let f = 10;
+// const add = (f,e) =>  e + f;
+  
+// console.log(add(10,40));
+
+
+// default parameter
+
+//es5
+// function mult (a,b){
+//   b=(typeof b !== 'undefined')?b:2
+//   console.log(a*b);
+
+// }
+// mult(4);
+
+// //es6
+// function mult (a,b=1){
+//   // b=(typeof b !== 'undefined')?b:2
+//   console.log(a*b);
+
+// }
+// mult(4);
+
+
+// const mul = (a=2,b=4,c=5)=>{
+//  console.log(`the mult of two number is :${a*b*c}`);
+// }
+// mul(5);
+
+
+// rest parameter
+//es5
+// function sum (a,b,c,d,e,f){
+//   console.log(a+b+c+d+e+f);
+
+// }
+// sum(1,2,3,4,5,6);
+
+//es6
+
+// function sum (...inputs){
+  
+//   console.log(...inputs);
+//   let total =0;
+//   for(let i of inputs){
+//     total = total+i;
+//   }
+//   console.log(total);
+
+// }
+// sum(1,2,3,4,5,6);
+
+// //rest with function and other arguments
+
+// function fun(a,b,...c){
+//   console.log(`${a} ${b}`);
+//   console.log(c);//rest value in array
+//   console.log(c[0]);//1st index value of array
+//   console.log(c.length);//array length
+//   console.log(c.indexOf('Eden'));
+// }
+
+// fun('Ronaldo','Messi','Pele','maradona','Neymar','Eden');
+
+// spread operator
+//es5
+// function sum(a,b,c){
+// console.log(a+b+c);
+// }
+// // sum(4,2,5);
+// var arrVal =[4,2,5];
+// sum.apply(null,arrVal);
+
+//es6
+
+function sum(a,b,c){
+  console.log(...arrVal);
+
+  }
+  // sum(4,2,5);
+  var arrVal =[4,2,5];
+  sum(...arrVal);
+  // sum.apply(null,arrVal);
+//replace concat method
+  let arr1=[1,2,3];
+  let arr2 =[4,5,6];
+  let arr3 =[7,8,9];
+  // arr1=arr1.concat(arr2);
+  arr1=[...arr1,...arr2,...arr3];
+  console.log(arr1);
+ 
+
+// replace copy 
+let arrc1=[1,2,3];
+let arrc3 =[6,7,8];
+// let arrc2 =[arrc1];
+// arrc2.push(4,5);
+let arrc2 = [...arrc1,4,5,...arrc3,9];
+console.log(arrc2);
