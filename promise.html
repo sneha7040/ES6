@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <h1>
+        <span id="apiindia"></span>
+      </h1>
+
+    <!-- Make Multiple AJAX Call using Function with Fetch API in Promises  -->
+    <script>
+       async function getCovidData(){
+
+        try {
+            const jsondata = await fetch("https://api.covid19api.com/summary");
+        
+        const jsdata = await jsondata.json();
+
+        const countryName = jsdata.Countries[160];
+
+     
+         console.log(`The name of the country ${countryName.Country}. The Total Confirmed cases here is ${countryName.TotalConfirmed} and the total Death cases here is ${countryName.TotalDeaths} and finally the Total Recovered cases here is ${countryName.TotalRecovered}.`);
+        } catch (err) {
+            console.log(`The error is: ${err}`);
+        }
+        
+        
+    }
+    getCovidData();
+    </script>
+  </body>
+</html>
