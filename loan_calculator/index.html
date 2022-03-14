@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <form action="" onsubmit="return calculate();">
+        <h1>LOAN CALCULATOR</h1>
+        <table class="table">
+          <tr>
+            <td><label for=""> loan amount:</label></td>
+            <td><input type="number" id="principle" required /></td>
+          </tr>
+          <tr>
+            <td><label for="">rate of interest:</label></td>
+            <td><input type="number" id="rateOfInterest" required /></td>
+          </tr>
+          <tr>
+            <td><label for="">number of years:</label></td>
+            <td><input type="number" id="months" required /></td>
+          </tr>
+          <tr>
+            <td><label for="">Interest payment:</label></td>
+            <td><label for="" id="interest"></label></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" value="Submit" />
+              <input type="reset" value="Reset" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+
+    <script type="text/javascript">
+      function calculate() {
+        const p = document.getElementById("principle").value;
+        const r = document.getElementById("rateOfInterest").value;
+        const t = document.getElementById("months").value;
+
+        const I = (p*r*t)/100;
+        console.log(I);
+        document.getElementById("interest").innerHTML = I;
+        return false;
+      }
+      // A = P (r (1+r)^n) / ( (1+r)^n -1 )
+    </script>
+  </body>
+</html>

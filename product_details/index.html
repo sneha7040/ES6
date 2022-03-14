@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        margin: 0px;
+        padding: 2px;
+        display: flexbox;
+    }
+     p{
+         text-align: center;
+         outline: 2px solid red;
+         padding: 15px;
+       
+     }
+</style>
+    </head>
+<body>
+   <div>
+    <center>
+        <form action="" onsubmit="return calculate();">
+            <h1>Item Calculator</h1>
+            <table style="border: 2px dashed green; padding: 5px; background-color:hotpink; outline: 2px solid yellowgreen ; outline-offset: 2px;">
+                <tr>
+                    <td> <label for="">Product name:</label></td>
+                    <td> <input type="text" id="product_name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Product Price:</label></td>
+                    <td><input type="text" id="product_price" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Product quenty:</label></td>
+                    <td><input type="number" id="product_quantity" required></td>
+                </tr>
+                <tr>
+                    <td><label for="">Total Product Price:</label></td>
+                    <td> <label for="" id="total_price"></label></td>
+                </tr>
+                <tr>
+                    <td><label for="">product gst:</label></td>
+                    <td> <label for="" id="productGst"></label></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit">  <input type="reset" value="Reset"></td>
+                    
+                </tr>
+            </table>
+        </form>
+    </center>
+   </div>
+
+
+   <!-- <div>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eius minima dolorum mollitia numquam consequuntur perspiciatis repudiandae facere magnam aliquid at reprehenderit repellendus labore officiis autem voluptas quos eos dolorem delectus pariatur non totam, deleniti explicabo. Obcaecati iste, ipsum, sit fugit nostrum doloremque amet vitae hic natus repudiandae repellendus cum et unde deserunt neque deleniti repellat inventore? Iste praesentium hic ex perferendis animi est saepe culpa! Nisi quasi explicabo natus sit voluptates, perspiciatis laborum sequi accusantium ex nihil, voluptatem veniam! Accusantium recusandae culpa unde quibusdam laudantium veritatis, id, aspernatur nulla officia expedita facilis incidunt amet itaque tempore quo assumenda. Provident.</p>
+   </div> -->
+   
+ 
+
+  <script>
+    
+
+      function calculate(){
+        
+      const productPriceVal = document.getElementById("product_price").value;
+      const productQuantityVal = document.getElementById("product_quantity").value;
+    //   const totalPriceVal = document.getElementById("total_price");
+      const productTotal = productPriceVal*productQuantityVal;
+      const gst = productTotal*(18/100);
+
+      document.getElementById("total_price").innerHTML=productTotal;
+      document.getElementById("productGst").innerHTML=gst;
+      return false;
+
+
+
+        
+
+      }
+
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.table {
+  border: 2px dashed black;
+  padding: 5px;
+  background-color: aqua;
+  outline: 2px solid yellowgreen;
+  outline-offset: 2px;
+}
