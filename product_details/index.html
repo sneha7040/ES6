@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -46,6 +46,10 @@
                     <td> <label for="" id="productGst"></label></td>
                 </tr>
                 <tr>
+                    <td><label for="">netprice:</label></td>
+                    <td> <label for="" id="netprice"></label></td>
+                </tr>
+                <tr>
                     <td colspan="2"><input type="submit" value="Submit">  <input type="reset" value="Reset"></td>
                     
                 </tr>
@@ -71,9 +75,11 @@
     //   const totalPriceVal = document.getElementById("total_price");
       const productTotal = productPriceVal*productQuantityVal;
       const gst = productTotal*(18/100);
+      const netprice=productTotal+gst;
 
       document.getElementById("total_price").innerHTML=productTotal;
       document.getElementById("productGst").innerHTML=gst;
+      document.getElementById("netprice").innerHTML=netprice;
       return false;
 
 

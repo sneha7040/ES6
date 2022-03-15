@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ba5e37763e.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+  
+  </head>
+  <body>
+  
+      <div class="container">
+        <form id="register" class="form">
+          <h1>EMPLOYEE REGISTRATION FORM</h1>
+          <div class="form-field">
+            <label for="firstname">Firstname:<span class="required">*</span></label>
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              autocomplete="off"
+              required
+            />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="middlename">Middlename:</label>
+            <input
+              type="text"
+              name="middlename"
+              id="middlename"
+              autocomplete="off"
+              required
+            />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="lastname">Lastname:<span class="required">*</span></label>
+            <input type="text" name="lastname" id="lastname" autocomplete="off" required />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="empid">Employeeid:<span class="required">*</span></label>
+            <input type="text" name="empid" id="empid" autocomplete="off" required/>
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="email">Email:<span class="required">*</span></label>
+            <input type="text" name="email" id="email" autocomplete="off" required />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="address">Address:<span class="required">*</span></label>
+            <input type="text" name="address" id="address" autocomplete="off" required />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="phoneno">phoneno:<span class="required">*</span></label>
+            <input type="text" name="phoneno" id="phoneno" autocomplete="off" required />
+            <small></small>
+          </div>
+  
+          <div class="form-field">
+            <label for="companyname">Companyname:<span class="required">*</span></label>
+            <input type="text" name="companyname" id="companyname" autocomplete="off" required />
+            <small></small>
+          </div>
+  
+  
+  
+          <div class="form-field">
+            <input type="submit" value="register" />
+          </div>
+        </form>
+      </div>
+    
+    <script>
+      const firstNameVal = document.getElementById("firstname");
+      const middleNameVal = document.getElementById("middlename");
+      const lastNameVal = document.getElementById("lastname");
+      const empIdVal = document.getElementById("empid");
+      const emailVal = document.getElementById("email");
+      const addressVal = document.getElementById("address");
+      const phonenoVal = document.getElementById("phoneno");
+      const companyNameVal = document.getElementById("companyname");
+      const form = document.querySelector("#register");
+
+
+    // for firstname 
+    const checkFirstName=()=>{
+      let valid = false;
+      const min = 3, max =10;
+      const firstname = firstNameVal.value.trim();
+      if(!isRequired(firstname)){
+        showError(firstNameVal,"firstname cannot be blank");
+
+      }else if (!isBetween(firstname.length,min,max)){
+        showError(firstNameVal,`firstname must be between ${min} and ${max} characters`);
+      }else{
+        showSuccess(firstNameVal);
+    valid = true;
+      }
+      return valid;
+    }
+    // for lastname 
+    const checkLastName=()=>{
+      let valid = false;
+      const min = 3, max =10;
+      const lastname = lastNameVal.value.trim();
+      if(!isRequired(lastname)){
+        showError(lastNameVal,"lastname cannot be blank");
+
+      }else if (!isBetween(lastname.length,min,max)){
+        showError(lastNameVal,`lastname must be between ${min} and ${max} characters`);
+      }else{
+        showSuccess(lastNameVal);
+    valid = true;
+      }
+      return valid;
+    }
+
+
+    // for address part 
+    const checkAddress=()=>{
+      let valid = false;
+      const address = addressVal.value.trim();
+      if(address=== ""){
+        showError(addressVal,"address can not be empty");
+      }else if(address.length<6){
+        showError(addressVal,"address should be minimum 6 characters ");
+       
+      }else{
+        showSuccess(addressVal);
+        valid = true;
+      }
+      return valid;
+    }
+
+
+    //for phoneno
+    const checkPhoneno=()=>{
+      let valid = false;
+      const phoneno = phonenoVal.value.trim();
+      if(phoneno === ""){
+        showError(phonenoVal,"phoneno can not be blank");
+      }
+      else if (!parseInt(phoneno)){
+        showError(phonenoVal,"phoneno should be number");
+      }
+     else if(phoneno.length<10){
+        showError(phonenoVal,"phoneno should be 10 digit");
+      }else if(phoneno.length>10){
+        showError(phonenoVal,"phoneno not greater than 10 digit");
+      }else{
+        showSuccess(phonenoVal);
+        valid = true;
+      }
+      return valid;
+    }
+
+    // for email 
+    const checkEmail = () => {
+  let valid = false;
+  const email = emailVal.value.trim();
+  if (!isRequired(email)) {
+    showError(emailVal, "Email can not be blank");
+  } else if (!isEmailValid(email)) {
+    showError(emailVal, "Email is not valid");
+  } else {
+    showSuccess(emailVal);
+    valid = true;
+  }
+  return valid;
+};
+
+
+
+
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+   
+    
+
+    const isRequired = (value) => (value === "" ? false : true);
+const isBetween = (length, min, max) =>
+  length < min || length > max ? false : true;
+
+
+
+  const showSuccess = (input) => {
+  // get the form-field element
+  const formField = input.parentElement;
+  // remove the error class
+  formField.classList.remove("error");
+  formField.classList.add("success");
+
+  // hide the error message
+  const error = formField.querySelector("small");
+  error.textContent = "";
+};
+
+
+const showError = (input, message) => {
+  //get the form-field element
+  const formField = input.parentElement;
+  // add the error class
+  formField.classList.remove("success");
+  formField.classList.add("error");
+  //show the error message
+  const error = formField.querySelector("small");
+  error.textContent = message;
+};
+
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let isFirstnameValid = checkFirstName()
+  let isLastNameValid = checkLastName()
+  let isPhonenoValid = checkPhoneno()
+    let isEmailValid = checkEmail()
+    let isAddressValid = checkAddress()
+
+
+
+  let isFormValid =
+  isFirstNameValid && isLastNameValid && isPhonenoValid
+   && isEmailValid && isAddressValid
+  
+
+  // submit to the server if the form is valid
+  if (isFormValid) {
+  }
+});
+
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        // cancel the previous timer
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        // setup a new timer
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args)
+        }, delay);
+    };
+};
+
+form.addEventListener('input', debounce(function (e) {
+    switch (e.target.id) {
+        case 'firstname':
+            checkFirstName();
+            break;
+        case 'lastname':
+            checkLastName();
+            break;
+        case 'phoneno':
+             checkPhoneno();
+             break;
+        case 'email':
+            checkEmail();
+            break;
+        case 'address':
+            checkAddress();
+       
+    }
+}));
+
+     </script>
+  </body>
+</html>
