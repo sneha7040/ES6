@@ -137,8 +137,48 @@ input:focus{
     /* margin: 150px 300px; */
     /* transform: rotate(60deg); */
     /* transform-origin:100% 100%; */
-    transform:scale(1.5);
-    transform-origin: left bottom;
-
-
+    /* transform:scaleY(3);  */
+    transform:rotate(0deg) scale(1);
+    transition: transform 1s;
+    /*matrix(scaleX(),skewY(), skewX(), scaleY(), translateX(), translateY())*/
+    /* transform-origin: left top; */
 }
+
+#box2d:hover{
+  transform: rotate(30deg) scale(2);
+  }
+
+
+
+  /*3d transform
+    rotateX(angle)
+    rotateY(angle)
+    rotateZ(angle)
+    rotate3d(x,y,z,angle)
+    translateZ(z)
+    translate3d(x,y,z)
+    scale3d(x,y,z)
+    scaleZ(z)
+    perspective(n)
+    matrix(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n);
+    none
+  */
+  .base{
+    width: 350px;
+    height: 250px;
+    background:gray;
+    font-size: 18px;
+    text-align: center;
+    margin: 100px 0 0 100px;
+
+  }
+  .box3d{
+    width: 350px;
+    height: 250px;
+    background-color: tomato;
+    /* transform-origin: right center; */
+    transform: perspective(800px) scale3d(2,2,1)  rotateX(80deg) ;
+    
+  }
+
+  
